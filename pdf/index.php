@@ -21,7 +21,7 @@ if(isset($_POST["cari"])){
 	$buku= cari($_POST["keyword"]);
 }
 
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -39,64 +39,64 @@ if(isset($_POST["cari"])){
 		}
 	</style>
 	<!-- Scipt jquery -->
-		<script src="js/jquery-3.6.0.min.js"></script>
-		<!-- script sendiri -->
-		<script src="js/script.js"></script>
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<!-- script sendiri -->
+	<script src="js/script.js"></script>
 
 </head>
 <body>
 
-<a href="logout.php">Logout</a> | <a href="cetak.php" target="_blank">Cetak</a>
+	<a href="logout.php">Logout</a> | <a href="cetak.php" target="_blank">Cetak</a>
 
-<h1>Daftar Data Buku</h1>
+	<h1>Daftar Data Buku</h1>
 
-<a href="tambah.php">Tambah Data Buku</a>
-<br><br>
+	<a href="tambah.php">Tambah Data Buku</a>
+	<br><br>
 
-<!-- membuat form untuk searching -->
-<form action="" method="post">
-	<input type="text" name="keyword" autofocus="" placeholder="Masukkan Keyword Pencarian.." autocomplete="off" size="40" id="keyword">
-	<button type="submit" name="cari" id="tombolcari">Cari!</button>
+	<!-- membuat form untuk searching -->
+	<form action="" method="post">
+		<input type="text" name="keyword" autofocus="" placeholder="Masukkan Keyword Pencarian.." autocomplete="off" size="40" id="keyword">
+		<button type="submit" name="cari" id="tombolcari">Cari!</button>
 
-	<img src="img/loader.gif" class="loader">
+		<img src="img/loader.gif" class="loader">
 
-</form>
-<br>
-
-
-<div id="container">
-<table border="1" cellpadding="10" cellspacing="0">
-	<tr>
-		<th>No.</th>
-		<th>Aksi</th>
-		<th>Cover</th>
-		<th>Judul</th>
-		<th>Penulis</th>
-		<th>Tahun Terbit</th>
-		<th>Harga Buku</th>
-	</tr>
+	</form>
+	<br>
 
 
-	<?php $i=1; ?>
-	<?php foreach($buku as $row) : ?>
-	<tr>
-		<td><?php echo $i ?></td>
-		<td>
-			<a href="ubah.php?id=<?php echo $row["id"]; ?>">Ubah</a> |
-			<a href="hapus.php?id=<?php echo $row["id"]; ?>" onclick= "return confirm('yakin?');">Hapus</a>
-		</td>
-		<td><img src="img/<?php echo $row["cover"] ?>" width="50"></td>
-		<td><?php echo $row["judul"] ?></td>
-		<td><?php echo $row["penulis"] ?></td>
-		<td><?php echo $row["tahunterbit"] ?></td>
-		<td><?php echo $row["hargabuku"] ?></td>
-	</tr>
-	<?php $i++ ?>
-	<?php endforeach ?>
+	<div id="container">
+		<table border="1" cellpadding="10" cellspacing="0">
+			<tr>
+				<th>No.</th>
+				<th>Aksi</th>
+				<th>Cover</th>
+				<th>Judul</th>
+				<th>Penulis</th>
+				<th>Tahun Terbit</th>
+				<th>Harga Buku</th>
+			</tr>
 
 
-</table>
-</div>
+			<?php $i=1; ?>
+			<?php foreach($buku as $row) : ?>
+				<tr>
+					<td><?php echo $i ?></td>
+					<td>
+						<a href="ubah.php?id=<?php echo $row["id"]; ?>">Ubah</a> |
+						<a href="hapus.php?id=<?php echo $row["id"]; ?>" onclick= "return confirm('yakin?');">Hapus</a>
+					</td>
+					<td><img src="img/<?php echo $row["cover"] ?>" width="50"></td>
+					<td><?php echo $row["judul"] ?></td>
+					<td><?php echo $row["penulis"] ?></td>
+					<td><?php echo $row["tahunterbit"] ?></td>
+					<td><?php echo $row["hargabuku"] ?></td>
+				</tr>
+				<?php $i++ ?>
+			<?php endforeach ?>
+
+
+		</table>
+	</div>
 
 
 </body>

@@ -2,7 +2,7 @@
 usleep(500000);
 session_start();
 //cek dulu ada tidak session nya
-//user sudah login atau belum
+//user sudah login atau b
 
 if (!isset($_SESSION["login"])) {
 	header ("Location: login.php");
